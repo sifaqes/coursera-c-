@@ -10,19 +10,21 @@ namespace module1
     {
         static void Main(string[] args)
         {
-            //Person p1 = new Person("siphax", "zerrouki",27) ;
-            //Console.WriteLine($"The result of your class {p1.sayAll}");
+            Person p1 = new Person("siphax", "zerrouki", 27);
+            Console.WriteLine($"The result of your class {p1.age}");
+            Console.WriteLine($"Person objects created {Person.PersonCount}");
 
-            //Person p2 = new Person();
-            //Console.WriteLine(p2.age);
+            Person p2 = new Person();
+            Console.WriteLine(p2.age);
+            Console.WriteLine($"Person objects created {Person.PersonCount}");
 
             Person p3 = new Person("sifaqes","zerrouki",27) ;
             p3.age = -5;
-<<<<<<< HEAD
+            Console.WriteLine($"Person objects created {Person.PersonCount}");
+
             Console.WriteLine(p3.ToString());
-            
-=======
->>>>>>> 2410c241c44e6c794cf5cfa03ec83f9b7cc1ad43
+
+
 
 
             Console.ReadLine();
@@ -32,23 +34,37 @@ namespace module1
 
     public class Person
     {
+        //static members
+        public static int PersonCount;
+
+
+        //non-static members
+        //instance variables
         private string Fname;
         private string Lname;
         private int Age;
 
         //proprietis
 
-        //Constructor
+        //Constructors Inizialization Class
+        static Person()
+        {
+            Console.WriteLine("static constructor ...");
+            PersonCount = 0;
+        }
         public Person(string Fname, string Lname, int Age) 
         {
+            Console.WriteLine("custom constructer ..");
+            PersonCount++;
             this.Lname = Lname;
             this.Fname = Fname;
             this.Age = Age;
         }
-
         public Person():this("Empty","Empty",0)
         {
         }
+
+
 
         public int age
         {
@@ -76,6 +92,7 @@ namespace module1
         {
             return $"The result of your class {Fname} {Lname} {Age}";
         }
+
 
        
     }
