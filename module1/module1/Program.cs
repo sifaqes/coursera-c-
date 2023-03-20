@@ -18,8 +18,11 @@ namespace module1
 
             Person p3 = new Person("sifaqes","zerrouki",27) ;
             p3.age = -5;
+<<<<<<< HEAD
             Console.WriteLine(p3.ToString());
             
+=======
+>>>>>>> 2410c241c44e6c794cf5cfa03ec83f9b7cc1ad43
 
 
             Console.ReadLine();
