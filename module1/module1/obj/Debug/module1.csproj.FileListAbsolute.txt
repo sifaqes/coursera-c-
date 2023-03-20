@@ -1,0 +1,8 @@
+C:\workspace\coursera.net\module1\module1\obj\Debug\module1.csproj.AssemblyReference.cache
+C:\workspace\coursera.net\module1\module1\obj\Debug\module1.csproj.SuggestedBindingRedirects.cache
+C:\workspace\coursera.net\module1\module1\obj\Debug\module1.csproj.CoreCompileInputs.cache
+C:\workspace\coursera.net\module1\module1\bin\Debug\module1.exe.config
+C:\workspace\coursera.net\module1\module1\bin\Debug\module1.exe
+C:\workspace\coursera.net\module1\module1\bin\Debug\module1.pdb
+C:\workspace\coursera.net\module1\module1\obj\Debug\module1.exe
+C:\workspace\coursera.net\module1\module1\obj\Debug\module1.pdb
