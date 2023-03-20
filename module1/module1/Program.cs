@@ -13,8 +13,13 @@ namespace module1
             //Person p1 = new Person("siphax", "zerrouki",27) ;
             //Console.WriteLine($"The result of your class {p1.sayAll}");
 
-            Person p2 = new Person();
-            Console.WriteLine(p2.sayAll);
+            //Person p2 = new Person();
+            //Console.WriteLine(p2.age);
+
+            Person p3 = new Person("sifaqes","zerrouki",27) ;
+            p3.age = -5;
+
+
             Console.ReadLine();
         }
     }
@@ -40,23 +45,22 @@ namespace module1
         {
         }
 
-        public string sayAll
+        public int age
         {
             get
             {
-                return $"P2: {Fname}, {Lname}, {Age}";
+                return Age;
             }
             set 
             {
-                Fname= value;
-                Lname = value;
-                if (int.Parse(value) < 0)
+                if (value < 0)
                 {
                     Console.WriteLine($"The age most be less a 0");
                 }
                 else
                 {
-                    Age = int.Parse(value);
+                    Age = value;
+                    Console.WriteLine($"The result of your age is {Age}");
                 }
                 
 
