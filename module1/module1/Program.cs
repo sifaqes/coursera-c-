@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,15 +13,15 @@ namespace module1
         {
             Person p1 = new Person("siphax", "zerrouki", 27);
             Console.WriteLine($"The result of your class {p1.age}");
-            Console.WriteLine($"Person objects created {Person.PersonCount}");
+            Person.PrintPersonCount();
 
             Person p2 = new Person();
             Console.WriteLine(p2.age);
-            Console.WriteLine($"Person objects created {Person.PersonCount}");
+            Person.PrintPersonCount();
 
             Person p3 = new Person("sifaqes","zerrouki",27) ;
             p3.age = -5;
-            Console.WriteLine($"Person objects created {Person.PersonCount}");
+            Person.PrintPersonCount();
 
             Console.WriteLine(p3.ToString());
 
@@ -94,14 +95,17 @@ namespace module1
 
         //Methodes
             //static methodes
+            public static void PrintPersonCount()
+            {
+            Console.WriteLine($"Person Objects created {PersonCount}");
+            }
+
+            //Non static methodes
             public override string ToString()
             {
                 return $"The result of your class {Fname} {Lname} {Age}";
             }
-            
-            //Non static methodes
 
 
-       
     }
 }
