@@ -19,22 +19,21 @@ namespace module1
             //Console.WriteLine(p2.age);
             //Person.PrintPersonCount();
 
-            //Person p3 = new Person("sifaqes","zerrouki",27) ;
+            //Person p3 = new Person("sifaqes", "zerrouki", 27);
             //p3.age = -5;
             //Person.PrintPersonCount();
 
             //Console.WriteLine(p3.ToString());
 
-            //Console.ReadLine();
+            ////call by value 
+            //int a = 2;
+            //int b = 10;
+            //Console.WriteLine($"1. a={a} and b = {b}");
 
+            //M1(ref a, out b);
+            //Console.WriteLine($"2. a={a} and b = {b}");
 
-            //call by value 
-            int a = 2;
-            int b = 10;
-            Console.WriteLine($"1. a={a} and b = {b}");
-
-            M1(ref a, out b);
-            Console.WriteLine($"2. a={a} and b = {b}");
+            Console.WriteLine(Person.PersonCount>=1 ? $"Passed {Person.PersonCount}":$"Failed {Person.PersonCount}");
             Console.ReadLine();
         }
         public static void M1(ref int x, out int y)
