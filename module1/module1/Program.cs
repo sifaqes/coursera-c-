@@ -11,26 +11,40 @@ namespace module1
     {
         static void Main(string[] args)
         {
-            Person p1 = new Person("siphax", "zerrouki", 27);
-            Console.WriteLine($"The result of your class {p1.age}");
-            Person.PrintPersonCount();
+            //Person p1 = new Person("siphax", "zerrouki", 27);
+            //Console.WriteLine($"The result of your class {p1.age}");
+            //Person.PrintPersonCount();
 
-            Person p2 = new Person();
-            Console.WriteLine(p2.age);
-            Person.PrintPersonCount();
+            //Person p2 = new Person();
+            //Console.WriteLine(p2.age);
+            //Person.PrintPersonCount();
 
-            Person p3 = new Person("sifaqes","zerrouki",27) ;
-            p3.age = -5;
-            Person.PrintPersonCount();
+            //Person p3 = new Person("sifaqes","zerrouki",27) ;
+            //p3.age = -5;
+            //Person.PrintPersonCount();
 
-            Console.WriteLine(p3.ToString());
+            //Console.WriteLine(p3.ToString());
+
+            //Console.ReadLine();
 
 
+            //call by value 
+            int a = 2;
+            int b = 10;
+            Console.WriteLine($"1. a={a} and b = {b}");
 
-
+            M1(a, b);
+            Console.WriteLine($"2. a={a} and b = {b}");
             Console.ReadLine();
         }
-    }
+        public static void M1(int x, int y)
+        {
+            Console.WriteLine($"3. a={x} and b = {y}");
+            x = x * 2;
+            y= y * 2;
+            Console.WriteLine($"4. a={x} and b = {y}");
+        }
+}
 
 
     public class Person
