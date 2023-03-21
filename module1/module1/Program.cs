@@ -34,35 +34,37 @@ namespace module1
 
     public class Person
     {
-        //static members
-        public static int PersonCount;
+        //1-members (Variable)
+            //Static members
+            public static int PersonCount;
+
+            //Non static members    
+            private string Fname;
+            private string Lname;
+            private int Age;
+
+        //2-Constructors
+            //static Constructors
+            static Person()
+            {
+                Console.WriteLine("static constructor ...");
+                PersonCount = 0;
+            }
+            public Person(string Fname, string Lname, int Age)
+            {
+                Console.WriteLine("custom constructer ..");
+                PersonCount++;
+                this.Lname = Lname;
+                this.Fname = Fname;
+                this.Age = Age;
+            }
+            public Person() : this("Empty", "Empty", 0)
+            {
+            }
+        //Non static Constructors
 
 
-        //non-static members
-        //instance variables
-        private string Fname;
-        private string Lname;
-        private int Age;
 
-        //proprietis
-
-        //Constructors Inizialization Class
-        static Person()
-        {
-            Console.WriteLine("static constructor ...");
-            PersonCount = 0;
-        }
-        public Person(string Fname, string Lname, int Age) 
-        {
-            Console.WriteLine("custom constructer ..");
-            PersonCount++;
-            this.Lname = Lname;
-            this.Fname = Fname;
-            this.Age = Age;
-        }
-        public Person():this("Empty","Empty",0)
-        {
-        }
 
 
 
@@ -88,10 +90,16 @@ namespace module1
             }
         }
 
-        public override string ToString()
-        {
-            return $"The result of your class {Fname} {Lname} {Age}";
-        }
+
+
+        //Methodes
+            //static methodes
+            public override string ToString()
+            {
+                return $"The result of your class {Fname} {Lname} {Age}";
+            }
+            
+            //Non static methodes
 
 
        
