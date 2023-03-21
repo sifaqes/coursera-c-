@@ -33,11 +33,11 @@ namespace module1
             int b = 10;
             Console.WriteLine($"1. a={a} and b = {b}");
 
-            M1(a, b);
+            M1(a, ref b);
             Console.WriteLine($"2. a={a} and b = {b}");
             Console.ReadLine();
         }
-        public static void M1(int x, int y)
+        public static void M1(int x, ref int y)
         {
             Console.WriteLine($"3. a={x} and b = {y}");
             x = x * 2;
