@@ -33,7 +33,68 @@ namespace module1
             //M1(ref a, out b);
             //Console.WriteLine($"2. a={a} and b = {b}");
 
-            Console.WriteLine(Person.PersonCount>=1 ? $"Passed {Person.PersonCount}":$"Failed {Person.PersonCount}");
+
+            //selection structure 
+            //Signle selection statment
+            if (Person.PersonCount >= 0)
+            {
+                Console.WriteLine($"Passed {Person.PersonCount}");
+            }
+
+            //Double selection statment
+            if (Person.PersonCount >= 0)
+            {
+                Console.WriteLine($"Signle selection statment Passed {Person.PersonCount}");
+            } else
+            {
+                Console.WriteLine($"Signle selection statment Failed {Person.PersonCount}");
+            }
+
+            //Double selection statment Tirnary operation
+            string result = Person.PersonCount >= 1 ? $"Passed {Person.PersonCount}": $"Failed {Person.PersonCount}";
+            Console.WriteLine($"Signle selection statment {result}");
+
+            //Nested IF 
+            if (Person.PersonCount >= 0) 
+            {
+                Console.WriteLine($"Nested IF {Person.PersonCount}");
+            }
+            else if (Person.PersonCount > 0)
+            {
+                Console.WriteLine($"Nested IF {Person.PersonCount}");
+            }
+            else if(Person.PersonCount == 0) 
+            {
+                Console.WriteLine($"Nested IF {Person.PersonCount}");
+            }
+
+            //case
+            int z = 1;
+
+
+
+            switch(z)
+            {
+                case 1:
+                    Console.WriteLine("z = 1");
+                    break;
+                case 2:
+                    Console.WriteLine("z = 2");
+                    break;
+                case 3:
+                    Console.WriteLine("z = 3");
+                    break;
+                case 4:
+                    Console.WriteLine("z = 4");
+                    break;
+                case 5:
+                    Console.WriteLine("z = 5");
+                    break;
+                default:
+                    Console.WriteLine($"Z = {z}");
+                    break;
+            }
+            
             Console.ReadLine();
         }
         public static void M1(ref int x, out int y)
