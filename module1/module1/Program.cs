@@ -95,6 +95,52 @@ namespace module1
                     break;
             }
             
+
+            //Repetition statment 
+            for(int x = 0; x<=10; x++) 
+            {
+                Console.WriteLine($"For Repetition statment is {x}");
+            }
+
+            for(int y=10; y>=0; y--)
+            {
+                Console.WriteLine($"For Repetition statment is {y}");
+            }
+
+            int i = 0;
+            while (i < 5)
+            {
+                Console.WriteLine($"i={i}");
+                i++;
+            }
+
+            i = 4;
+
+            do 
+            {
+                Console.WriteLine($"do i={i}");
+                i++;
+            }while(i < 5);
+
+
+            for (int R = 1; R < 4; R++)
+            {
+                for (int C = 0; C < R; C++)
+                {
+                    Console.Write($"*");
+                }
+                Console.Write(" ");
+            }
+
+            int A = 1;
+            int B = 1;
+            do
+            {
+                B *= A;
+                A++;
+            } while (A < 4);
+            Console.WriteLine(B);
+
             Console.ReadLine();
         }
         public static void M1(ref int x, out int y)
