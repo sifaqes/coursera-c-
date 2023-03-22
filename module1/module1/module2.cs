@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace modules
 {
     internal class module2
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
             //Vehicle v1 = new Vehicle();
             //Console.WriteLine(v1);
@@ -19,104 +20,215 @@ namespace modules
             //c1.Drive();
             //c1.Stop();
 
+            //Size S1 = new Size("Cube", 2, 2, 2, "m³");
+            //PrintArea(S1);
+            //Circle C1 = new Circle("Circle", 3, "m²");
+            //PrintArea(C1);
+            //Space SP1 = new Space("Space", 3, 2, "m²");
+            //PrintArea(SP1);
 
-            Size S1 = new Size("Cube", 2, 2, 2, "m³");
-            PrintArea(S1);
 
-            Circle C1 = new Circle("Circle", 3, "m²");
-            PrintArea(C1);
+            Numbers N = new Numbers();
+            N.AddNumbers(1);
+            N.AddNumbers(2);
+            N.AddNumbers(3);
+            N.AddNumbers(4);
+            PrintCount(N);
 
-            Space SP1 = new Space("Space", 3, 2, "m²");
-            PrintArea(SP1);
+            Persones P = new Persones();
+            P.AddPersons("Siphax");
+            P.AddPersons("Youva");
+            PrintCount(P);
+            PrintPersons(P);
 
             Console.ReadLine();
         }
-        public static void PrintArea(Shape p) 
+        public static void PrintCount(ICountable I)
         {
-            Console.WriteLine($"The Shape of {p.Name} is {p.GetArea()} {p.GetUnity()}");
+            Console.WriteLine($"There are {I.Counts()} memebers on this object.");
+        }
+
+        public static void PrintPersons(ICountable P)
+        {
+            Console.WriteLine($"There members Nams is {P.GetPersones()}.");
+        }
+
+        //public static void PrintArea(Shape p) 
+        //{
+        //    Console.WriteLine($"The Shape of {p.Name} is {p.GetArea()} {p.GetUnity()}");
+        //}
+    }
+
+
+    public interface ICountable
+    {
+        public int Counts();
+        public string GetPersones();
+    }
+
+    public class Numbers: ICountable
+    {
+        private List<int> MyNumbers;
+        public Numbers()
+        {
+            this.MyNumbers = new List<int>();
+        }
+
+
+        public void AddNumbers(int N)
+        {
+            MyNumbers.Add(N);
+        }
+        public int Counts()
+        {
+            return this.MyNumbers.Count();
+        }
+
+        public string GetPersones()
+        {
+            return "list";
         }
     }
-    // ---------------------------- Abserct class ----------------------------
-    public abstract class Shape
+
+    public class Persones : ICountable
     {
-        public string Name { get; set; }
-        public string Unity { get; set; }
-        public Shape(string Name, string Unity)
+        private List<string> MyPersons;
+
+        public Persones()
+        { 
+        this.MyPersons = new List<string>();
+        }
+
+
+        public void AddPersons(string Name) 
+        {
+            MyPersons.Add(Name);
+        }
+
+        public int Counts()
+        {
+            return 0;
+        }
+
+        public string GetPersones()
+        {
+            string lista = "";
+            foreach (string result in MyPersons)
             {
-                this.Name = Name;
-                this.Unity = Unity;
+                lista += result + " ";
             }
-
-        
-
-        public abstract Double GetArea();
-        public abstract string GetUnity();
-
-    }
-
-    public class Size : Shape
-    {
-        private int Width;
-        private int Height;
-        private int Length;
-
-        public Size(string Name, int Width, int Height, int Length, string Unity):base(Name,Unity)
-        {
-            this.Width = Width;
-            this.Height = Height;
-            this.Length = Length;
-        }
-
-        public override double GetArea()
-        {
-            return Width * Height * Length;
-        }
-
-        public override string GetUnity()
-        {
-            return Unity;
-        }
-    }
-
-    public class Circle : Shape
-    {
-        private int Radius;
-        public Circle(String Name, int Radius, string Unity):base(Name, Unity) 
-        {
-        this.Radius = Radius;
-        }
-        public override double GetArea()
-        {
-            return this.Radius * this.Radius * Math.PI;
-        }
-
-        public override string GetUnity()
-        {
-            return Unity;
+            return lista;
         }
     }
 
 
-    public class Space:Shape
-    {
-        private int Width;
-        private int Height;
 
-        public Space(string Name, int Width, int Height,string Unity) : base(Name, Unity)
-        {
-            this.Width = Width;
-            this.Height = Height;
-        }
-        public override double GetArea()
-        {
-            return Width * Height;
-        }
 
-        public override string GetUnity()
-        {
-            return Unity;
-        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //// ---------------------------- Abserct class ----------------------------
+    //public abstract class Shape
+    //{
+    //    public string Name { get; set; }
+    //    public string Unity { get; set; }
+    //    public Shape(string Name, string Unity)
+    //        {
+    //            this.Name = Name;
+    //            this.Unity = Unity;
+    //        }
+
+    //    public abstract Double GetArea();
+    //    public abstract string GetUnity();
+
+    //}
+
+    //public class Size : Shape
+    //{
+    //    private int Width;
+    //    private int Height;
+    //    private int Length;
+
+    //    public Size(string Name, int Width, int Height, int Length, string Unity):base(Name,Unity)
+    //    {
+    //        this.Width = Width;
+    //        this.Height = Height;
+    //        this.Length = Length;
+    //    }
+
+    //    public override double GetArea()
+    //    {
+    //        return Width * Height * Length;
+    //    }
+
+    //    public override string GetUnity()
+    //    {
+    //        return Unity;
+    //    }
+    //}
+
+    //public class Circle : Shape
+    //{
+    //    private int Radius;
+    //    public Circle(String Name, int Radius, string Unity):base(Name, Unity) 
+    //    {
+    //    this.Radius = Radius;
+    //    }
+    //    public override double GetArea()
+    //    {
+    //        return this.Radius * this.Radius * Math.PI;
+    //    }
+
+    //    public override string GetUnity()
+    //    {
+    //        return Unity;
+    //    }
+    //}
+
+
+    //public class Space:Shape
+    //{
+    //    private int Width;
+    //    private int Height;
+
+    //    public Space(string Name, int Width, int Height,string Unity) : base(Name, Unity)
+    //    {
+    //        this.Width = Width;
+    //        this.Height = Height;
+    //    }
+    //    public override double GetArea()
+    //    {
+    //        return Width * Height;
+    //    }
+
+    //    public override string GetUnity()
+    //    {
+    //        return Unity;
+    //    }
+    //}
 
 
 
@@ -164,7 +276,7 @@ namespace modules
     //{
     //    public car(string Make, string Model, int Year):base(Make, Model, Year) 
     //    {
-        
+
     //    }
 
     //    public void OpenTrunck() 
