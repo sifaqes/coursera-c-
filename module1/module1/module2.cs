@@ -11,11 +11,99 @@ namespace modules
     {
         static void Main(string[] args) 
         {
-            int x = 10;
-            Console.WriteLine($"x={x}");
+
+            Vehicle v1 = new Vehicle();
+            Console.WriteLine(v1);
+
+            car c1 = new car("Mercides", "Benz", 2013);
+            Console.WriteLine(c1);
+            c1.OpenTrunck();
+            c1.Drive();
+            c1.Stop();
+
             Console.ReadLine();
         }
     }
+
+    public class Vehicle
+    {
+        private string Make;
+        private string Model;
+        private int Year;
+        //set constructor
+        public Vehicle(string Make, string Model, int Year)
+        {
+            this.Make = Make;
+            this.Model = Model;
+            this.Year = Year;
+        }
+
+        //set constructor emply
+        public Vehicle() : this("Empty", "Empty", 0) 
+        {
+        }
+
+        //override: change the default behavior of the method
+        public override string ToString()
+        {
+            return $"{Year} {Make} {Model}";
+        }
+        //set a virtual method
+        // whith a virtual method you can override it in another class
+        public virtual void Drive()
+        {
+            Console.WriteLine("Vehicle is driving...");
+        }
+
+        public virtual void Stop()
+        {
+            Console.WriteLine("Vehicle is stopping...");
+        }
+    }
+
+    public class car : Vehicle 
+    {
+        public car(string Make, string Model, int Year):base(Make, Model, Year) 
+        {
+        
+        }
+
+        public void OpenTrunck() 
+        {
+        Console.WriteLine("Opening the trunck...");
+        }
+
+        public override void Drive()
+        {
+            Console.WriteLine("Car is driving...");
+        }
+
+        //seales: don't make override a another driving class
+        public sealed override void Stop()
+        {
+            Console.WriteLine("The car is stopping...");
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public class Student
     {
         private int _Id;
