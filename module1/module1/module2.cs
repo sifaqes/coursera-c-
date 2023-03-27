@@ -8,10 +8,66 @@ using System.Threading.Tasks;
 
 namespace modules
 {
+
+    public class Animal 
+    {
+        private string Name;
+        public Animal(string Name )
+        {
+            this.Name = Name;
+        }
+        public virtual void Move() 
+        {
+            string Loc = CurrLoc();
+            Console.WriteLine($"{Name} is moving startinc from {Loc}");
+        }
+        public virtual string CurrLoc()
+        {
+            return "[Animal Loc]";
+        }
+    }
+
+    public class Fish : Animal
+    {
+        public Fish(String Name) : base(Name) 
+        { 
+
+        }
+    }
+    public class Frog : Animal
+    {
+        public Frog(String Name) : base(Name)
+        {
+
+        }
+    }
+    public class Bird : Animal
+    {
+        public Bird(String Name) : base(Name)
+        {
+
+        }
+    }
     internal class module2
     {
+        public static void M1(Animal[] Animals)
+        {
+            foreach(Animal A in Animals)
+            {
+                A.Move();
+            }
+        }
         static void Main(string[] args)
         {
+
+            Animal A1 = new Animal("Animal");
+            Animal A2 = new Fish("Fish");
+            Animal A3 = new Frog("Frog");
+            Animal A4 = new Bird("Bird");
+            Animal[] animals = {A1, A2 , A3 , A4 };
+            M1(animals);
+            Console.ReadLine();
+
             //Vehicle v1 = new Vehicle();
             //Console.WriteLine(v1);
             //car c1 = new car("Mercides", "Benz", 2013);
@@ -28,30 +84,30 @@ namespace modules
             //PrintArea(SP1);
 
 
-            Numbers N = new Numbers();
-            N.AddNumbers(1);
-            N.AddNumbers(2);
-            N.AddNumbers(3);
-            N.AddNumbers(4);
-            PrintCount(N);
+            //Numbers N = new Numbers();
+            //N.AddNumbers(1);
+            //N.AddNumbers(2);
+            //N.AddNumbers(3);
+            //N.AddNumbers(4);
+            //PrintCount(N);
 
-            Persones P = new Persones();
-            P.AddPersons("Siphax");
-            P.AddPersons("Youva");
-            PrintCount(P);
-            PrintPersons(P);
+            //Persones P = new Persones();
+            //P.AddPersons("Siphax");
+            //P.AddPersons("Youva");
+            //PrintCount(P);
+            //PrintPersons(P);
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
-        public static void PrintCount(ICountable I)
-        {
-            Console.WriteLine($"There are {I.Counts()} memebers on this object.");
-        }
+        //public static void PrintCount(ICountable I)
+        //{
+        //    Console.WriteLine($"There are {I.Counts()} memebers on this object.");
+        //}
 
-        public static void PrintPersons(ICountable P)
-        {
-            Console.WriteLine($"There members Nams is {P.GetPersones()}.");
-        }
+        //public static void PrintPersons(ICountable P)
+        //{
+        //    Console.WriteLine($"There members Nams is {P.GetPersones()}.");
+        //}
 
         //public static void PrintArea(Shape p) 
         //{
@@ -60,66 +116,67 @@ namespace modules
     }
 
 
-    public interface ICountable
-    {
-        public int Counts();
-        public string GetPersones();
-    }
+    //public interface ICountable
+    //{
+    //    public int Counts();
+    //    public string GetPersones();
+    //}
 
-    public class Numbers: ICountable
-    {
-        private List<int> MyNumbers;
-        public Numbers()
-        {
-            this.MyNumbers = new List<int>();
-        }
-
-
-        public void AddNumbers(int N)
-        {
-            MyNumbers.Add(N);
-        }
-        public int Counts()
-        {
-            return this.MyNumbers.Count();
-        }
-
-        public string GetPersones()
-        {
-            return "list";
-        }
-    }
-
-    public class Persones : ICountable
-    {
-        private List<string> MyPersons;
-
-        public Persones()
-        { 
-        this.MyPersons = new List<string>();
-        }
+    //public class Numbers: ICountable
+    //{
+    //    private List<int> MyNumbers;
+    //    public Numbers()
+    //    {
+    //        this.MyNumbers = new List<int>();
+    //    }
 
 
-        public void AddPersons(string Name) 
-        {
-            MyPersons.Add(Name);
-        }
 
-        public int Counts()
-        {
-            return 0;
-        }
+    //    public void AddNumbers(int N)
+    //    {
+    //        MyNumbers.Add(N);
+    //    }
+    //    public int Counts()
+    //    {
+    //        return this.MyNumbers.Count();
+    //    }
 
-        public string GetPersones()
-        {
-            string lista = "";
-            foreach (string result in MyPersons)
-            {
-                lista += result + " ";
-            }
-            return lista;
-        }
-    }
+    //    public string GetPersones()
+    //    {
+    //        return "list";
+    //    }
+    //}
+
+    //public class Persones : ICountable
+    //{
+    //    private List<string> MyPersons;
+
+    //    public Persones()
+    //    { 
+    //    this.MyPersons = new List<string>();
+    //    }
+
+
+    //    public void AddPersons(string Name) 
+    //    {
+    //        MyPersons.Add(Name);
+    //    }
+
+    //    public int Counts()
+    //    {
+    //        return 0;
+    //    }
+
+    //    public string GetPersones()
+    //    {
+    //        string lista = "";
+    //        foreach (string result in MyPersons)
+    //        {
+    //            lista += result + " ";
+    //        }
+    //        return lista;
+    //    }
+    //}
 
 
 
